@@ -52,7 +52,7 @@ class PinView extends React.Component {
           animatedInputIndex: this.state.animatedInputIndex.concat(this.userInput.indexOf(parseInt(val)))
         });
         if (this.userInput.length === password.length) {
-          if (this.userInput.equals(password)) {
+          /* if (this.userInput.equals(password)) {
             onSuccess()
           } else {
             Animated.timing(
@@ -71,7 +71,7 @@ class PinView extends React.Component {
               statusText: 'HATA'
             });
             onFailure()
-          }
+          } */
         }
       }
     }
@@ -98,8 +98,7 @@ class PinView extends React.Component {
             animatedDeleteButton={ this.state.animatedDeleteButton }
             password={ password }
             deleteText={ deleteText }
-            onSuccess={ onSuccess }
-            onFailure={ onFailure }
+            onFulfill={ onFulfill }
             animatedDeleteButtonOnPress={ this.state.animatedDeleteButtonOnPress }
             keyboardOnPress={ this.keyboardOnPress }/>
         </View>
@@ -125,7 +124,8 @@ PinView.propTypes = {
   inputBgColor      : PropTypes.string,
   inputActiveBgColor: PropTypes.string,
   inputBgOpacity    : PropTypes.number,
-  onSuccess         : PropTypes.func.isRequired,
+  onFulfill         : PropTypes.func.isRequired,
+  loading           : PropTypes.bool,
   onFailure         : PropTypes.func.isRequired,
   password          : PropTypes.array.isRequired
 };
